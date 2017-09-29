@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.aspectj:aspectjtools:1.8.1'
+        classpath 'org.aspectj:aspectjtools:1.8.9'
     }
 }
 
@@ -23,6 +23,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
     }
     buildTypes {
         release {
@@ -45,7 +46,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'org.aspectj:aspectjrt:1.8.1'
+    compile 'org.aspectj:aspectjrt:1.8.9'
+    compile project(path: ':aoplib')
 }
 
 //final def log = project.logger

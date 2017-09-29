@@ -1,9 +1,13 @@
 package com.sundae.aoptest;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import com.sundae.aoplib.annotation.CheckNet;
+import com.sundae.aoplib.annotation.DebugTrack;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,10 +24,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    @CheckNet
-    void test()
+    @CheckNet(callbackMethodName = "callback")
+    @DebugTrack
+    private void test()
     {
         Toast.makeText(MainActivity.this , "TEST 有网哟" , Toast.LENGTH_SHORT).show();
     }
+
+    private boolean callback()
+    {
+        Toast.makeText(this , "checkNet" , Toast.LENGTH_SHORT);
+        return true;
+    }
+
 }
