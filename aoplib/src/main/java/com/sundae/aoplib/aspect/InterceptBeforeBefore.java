@@ -23,9 +23,9 @@ public class InterceptBeforeBefore {
     @Around(value = POINTCUT_METHOD , argNames = "callbackMethodName")
     public Object interceptBefore(ProceedingJoinPoint joinPoint , String callbackMethodName) throws Throwable {
         LogUtil.e("interceptBefore + "+ callbackMethodName);
-        Object obj = joinPoint.getThis();
         if(callbackMethodName != null&& callbackMethodName.length() > 0)
         {
+            Object obj = joinPoint.getThis();
             Class<?> cla = obj.getClass();
             try{
                 Method callbackMethod = cla.getDeclaredMethod(callbackMethodName);

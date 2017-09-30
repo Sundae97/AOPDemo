@@ -5,15 +5,20 @@ import org.aspectj.tools.ajc.Main
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url uri('../repo')
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-beta6'
         //classpath files('libs/aspectjtools-1.8.9.jar')
-        classpath 'org.aspectj:aspectjtools:1.8.1'
+//        classpath 'org.aspectj:aspectjtools:1.8.1'
+        classpath 'com.sundae.aoplib.plugin:aoplib-plugin:0.0.1'
     }
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'aoplibplugin'
 
 android {
     compileSdkVersion 26
@@ -42,8 +47,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    //implementation files('libs/aspectjrt-1.8.9.jar')
-    compile 'org.aspectj:aspectjrt:1.8.9'
+//    compile 'org.aspectj:aspectjrt:1.8.9'
 }
 
 project.android.libraryVariants.all { variant ->
