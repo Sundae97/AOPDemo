@@ -12,8 +12,7 @@ import java.lang.annotation.Target;
  * @Sundae
  */
 
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target({ElementType.CONSTRUCTOR , ElementType.METHOD})
 public @interface CheckNet {
-    String callbackMethodName() default "";
 }

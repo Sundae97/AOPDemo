@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.sundae.aoplib.annotation.CheckNet;
 import com.sundae.aoplib.annotation.DebugTrack;
-
+import com.sundae.aoplib.annotation.InterceptBefore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @CheckNet(callbackMethodName = "callback")
+    @CheckNet
     @DebugTrack
+    @InterceptBefore(methodName = "callback")
     private void test()
     {
         Toast.makeText(MainActivity.this , "TEST 有网哟" , Toast.LENGTH_SHORT).show();
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean callback()
     {
-        Toast.makeText(this , "checkNet" , Toast.LENGTH_SHORT);
+        Toast.makeText(this , "CALLBACKMETHOD" , Toast.LENGTH_SHORT).show();
         return true;
     }
 

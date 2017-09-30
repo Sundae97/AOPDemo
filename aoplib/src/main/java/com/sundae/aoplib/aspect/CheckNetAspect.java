@@ -37,17 +37,6 @@ public class CheckNetAspect {
         CheckNet checkNet = signature.getMethod().getAnnotation(CheckNet.class);
         if(checkNet != null)
         {
-//            LogUtil.e("checkNet1");
-//            Class<?> cla = (Class<?>) proceedingJoinPoint.getThis();
-//            String callbackMethodName = "";
-//            if(callbackMethodName != null && callbackMethodName.length() > 0)
-//            {
-//                LogUtil.e("checkNet2");
-//                Method callbackMethod = cla.getMethod(callbackMethodName , cla);
-//                callbackMethod.setAccessible(true);
-//                boolean intercept = (boolean) callbackMethod.invoke(cla);
-//                LogUtil.e("intercept : " + intercept);
-//            }
             Object obj = proceedingJoinPoint.getThis();     //获取这个方法所在的类
             Context context = AppUtil.getContext(obj);
             if(context != null)
