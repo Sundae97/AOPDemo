@@ -5,3 +5,5 @@
 了解到AOP的强大之处，发现许多项目中可以应用到的地方，目前还在学习中。。。
 
 参考 : https://fernandocejas.com/2014/08/03/aspect-oriented-programming-in-android/
+
+我的博客 : http://www.jianshu.com/p/6d8054759bca
